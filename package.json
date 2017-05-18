@@ -1,0 +1,28 @@
+{
+  "name": "greenshoe-api",
+  "version": "1.0.0",
+  "description": "API for the frontend of the greenshoe app",
+  "main": "./bin/www",
+  "scripts": {
+    "start:dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/destino92/greenshoe-api.git"
+  },
+  "author": "Destino Dello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/destino92/greenshoe-api/issues"
+  },
+  "homepage": "https://github.com/destino92/greenshoe-api#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
