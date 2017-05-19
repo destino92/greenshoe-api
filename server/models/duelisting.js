@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var DueListing = sequelize.define('DueListing', {
+  const DueListing = sequelize.define('DueListing', {
     debit: {
       type: DataTypes.MONEY,
       allowNull: false,

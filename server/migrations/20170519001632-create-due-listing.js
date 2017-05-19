@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
-  up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('DueListings', {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('DueListings', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,22 +9,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       debit: {
-        type: Sequelize.MONEY
+        type: Sequelize.MONEY,
+        allowNull: false,
       },
       interest: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       loan_balance: {
-        type: Sequelize.MONEY
+        type: Sequelize.MONEY,
+        allowNull: false,
       },
       due_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
       },
-      paid_date: {
-        type: Sequelize.DATE
+      last_payement_date: {
+        type: Sequelize.DATE,
       },
       complete: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -33,10 +38,17 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
-    });
-  },
-  down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('DueListings');
-  }
+      },
+      profileId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Profiles',
+          key: 'id',
+          as: 'profileId',
+        },
+      },
+    }),
+  down: (queryInterface/*, Sequelize */) =>
+    queryInterface.dropTable('DueListings'),
 };
