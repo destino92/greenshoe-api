@@ -6,4 +6,5 @@ module.exports = (app) => {
   }));
 
   app.post('/api/profiles', profilesController.create);
+  app.get('/api/profiles', profilesController.list);
 };

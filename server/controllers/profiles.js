@@ -12,4 +12,10 @@ module.exports = {
       .then(profile => res.status(201).send(profile))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return Profile
+      .all()
+      .then(profiles => res.status(200).send(profiles))
+      .catch(error => res.status(400).send(error));
+  },
 };
