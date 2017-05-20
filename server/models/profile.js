@@ -25,8 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         is: /^[^0]\d{9}/,
-        min: 10,
-        max: 10,
       }
     },
     mobile_number: {
@@ -35,8 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         is: /^0\d{9}/,
-        min: 10,
-        max: 10,
       }
     }
   }, {

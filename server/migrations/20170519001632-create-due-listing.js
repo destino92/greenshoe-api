@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       debit: {
-        type: Sequelize.MONEY,
+        type: Sequelize.DECIMAL,
         allowNull: false,
       },
       interest: {
@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false,
       },
       loan_balance: {
-        type: Sequelize.MONEY,
+        type: Sequelize.DECIMAL,
         allowNull: false,
       },
       due_date: {
