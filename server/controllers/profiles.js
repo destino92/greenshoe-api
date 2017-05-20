@@ -42,4 +42,41 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
+  update(req, res) {
+    return Profile
+      .findById(req.params.profileId, {
+        include: [{
+          model: DueListing,
+          as: 'dueListings',
+        }],
+      })
+      .then(profile => {
+        if(!profile) {
+          return res.status(404).send({
+            message: 'Profile Not Found',
+          });
+        }
+        return profile
+          .update(req.body, { fields: Object.keys(req.body) })
+          .then(() => res.status(200).send(profile))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+  destroy(req, res) {
+    return Profile
+      .findById(req.params.profileId)
+      .then(profile => {
+        if (!profile) {
+          return res.status(400).send({
+            message: 'Profile Not Found',
+          });
+        }
+        return profile
+          .destroy()
+          .then(() => res.status(204).send())
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
+  },
 };
