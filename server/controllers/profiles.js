@@ -1,4 +1,5 @@
 const Profile = require('../models').Profile;
+const DueListing = require('../models').DueListing;
 
 module.exports = {
   create(req, res) {
@@ -14,7 +15,12 @@ module.exports = {
   },
   list(req, res) {
     return Profile
-      .all()
+      .findAll({
+        include: [{
+          model: DueListing,
+          as: 'dueListings',
+        }],
+      })
       .then(profiles => res.status(200).send(profiles))
       .catch(error => res.status(400).send(error));
   },

@@ -38,9 +38,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        // associations can be defined here
-      }
-    }
+        Profile.hasMany(models.DueListing, {
+          foreignKey: 'profileId',
+          as: 'dueListings',
+        });
+      },
+    },
   });
   return Profile;
 };
