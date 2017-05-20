@@ -21,11 +21,11 @@ module.exports = {
         allowNull: false,
       },
       due_date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       last_payement_date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       complete: {
         type: Sequelize.BOOLEAN,

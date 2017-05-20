@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     last_payement_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATEONLY,
     },
     due_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     complete: {
